@@ -36,7 +36,7 @@ namespace Caesar
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            
+            int Key = int.Parse(textBox1.Text);
         }
 
         private void Label3_Click(object sender, EventArgs e)
@@ -66,7 +66,31 @@ namespace Caesar
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if(comboBox1.Text == "I want to Encrypt text with Caesar")
+            {
+                textBox1.Visible = true;
+                textBox2.Visible = true;
+                textBox3.Visible = true;
+                label4.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                button1.Visible = true;
+            }
+            else if(comboBox1.Text == "I want to Decrypt text with Caesar")
+            {
+                textBox1.Visible = true;
+                textBox2.Visible = false;
+                textBox3.Visible = false;
+                label4.Visible = false;
+                label2.Visible = true;
+                label3.Visible = false;
+                button1.Visible = false;
+            }
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

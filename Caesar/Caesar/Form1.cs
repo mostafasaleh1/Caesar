@@ -102,7 +102,12 @@ namespace Caesar
                 int key = int.Parse(textBox1.Text);
                 if (key > 0 && key <= 26)
                 {
-
+                    string EncryptedText = "";
+                    for (int i = 0; i < textBox2.Text.Length; i++)
+                    {
+                        EncryptedText += (char)(((textBox2.Text[i] + key - 97) % 26) + 97);
+                    }
+                    textBox3.Text = EncryptedText;
                 }
                 else
                 {

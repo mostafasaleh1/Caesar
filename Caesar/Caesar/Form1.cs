@@ -105,13 +105,20 @@ namespace Caesar
                     string EncryptedText = "";
                     for (int i = 0; i < textBox2.Text.Length; i++)
                     {
-                        if (char.IsLower(textBox2.Text[i]))
+                        if (char.IsLetter(textBox2.Text[i]))
                         {
-                            EncryptedText += (char)(((textBox2.Text[i] + key - 97) % 26) + 97);
+                            if (char.IsLower(textBox2.Text[i]))
+                            {
+                                EncryptedText += (char)(((textBox2.Text[i] + key - 97) % 26) + 97);
+                            }
+                            else
+                            {
+                                EncryptedText += (char)(((textBox2.Text[i] + key - 65) % 26) + 65);
+                            }
                         }
                         else
                         {
-                            EncryptedText += (char)(((textBox2.Text[i] + key - 65) % 26) + 65);
+                            EncryptedText += textBox2.Text[i];
                         }
                     }
                     textBox3.Text = EncryptedText;

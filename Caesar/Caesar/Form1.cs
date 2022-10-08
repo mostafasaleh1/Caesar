@@ -74,6 +74,9 @@ namespace Caesar
             label4.Visible = true;
             label2.Visible = true;
             label3.Visible = true;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
             if (comboBox1.Text == "I want to Encrypt text with Caesar")
             {
 
@@ -81,6 +84,7 @@ namespace Caesar
                 button2.Visible = false;
                 label3.Text = "Text to be Encrypted";
                 label4.Text = "Encrypted Text";
+
             }
             else if(comboBox1.Text == "I want to Decrypt text with Caesar")
             {
@@ -89,6 +93,17 @@ namespace Caesar
                 button1.Visible = false;
                 label3.Text = "Decrypted Text";
                 label4.Text = "Text to be Decrypted";
+            }
+            else if (comboBox1.Text == "None")
+            {
+                textBox1.Visible = false;
+                textBox2.Visible = false;
+                textBox3.Visible = false;
+                label4.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
             }
             else
             {
@@ -129,6 +144,10 @@ namespace Caesar
                     }
                     textBox3.Text = EncryptedText;
                 }
+                else if (textBox1.Text == null || textBox1.Text == "")
+                {
+                    MessageBox.Show("You mush enter a key");
+                }
                 else
                 {
                     MessageBox.Show("Key must be withing the range [1 : 26]");
@@ -142,34 +161,52 @@ namespace Caesar
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            int key = int.Parse(textBox1.Text);
-            if (key > 0 && key <= 26)
+            try
             {
-                string EncryptedText = "";
-                for (int i = 0; i < textBox3.Text.Length; i++)
+                int key = int.Parse(textBox1.Text);
+                if (key > 0 && key <= 26)
                 {
-                    if (char.IsLetter(textBox3.Text[i]))
+                    string EncryptedText = "";
+                    for (int i = 0; i < textBox3.Text.Length; i++)
                     {
-                        if (char.IsLower(textBox3.Text[i]))
+                        if (char.IsLetter(textBox3.Text[i]))
                         {
-                            EncryptedText += (char)(((textBox3.Text[i] - (key + 26) - 97) % 26) + 97);
+                            if (char.IsLower(textBox3.Text[i]))
+                            {
+                                EncryptedText += (char)(((textBox3.Text[i] - key + 26 - 97) % 26) + 97);
+                            }
+                            else
+                            {
+                                EncryptedText += (char)(((textBox3.Text[i] - key + 26 - 65) % 26) + 65);
+                            }
                         }
                         else
                         {
-                            EncryptedText += (char)(((textBox3.Text[i] - (key + 26) - 65) % 26) + 65);
+                            EncryptedText += textBox3.Text[i];
                         }
                     }
-                    else
-                    {
-                        EncryptedText += textBox3.Text[i];
-                    }
+                    textBox2.Text = EncryptedText;
                 }
-                textBox2.Text = EncryptedText;
+                else if (textBox1.Text == null || textBox1.Text == "")
+                {
+                    MessageBox.Show("You mush enter a key");
+                }
+                else
+                {
+                    MessageBox.Show("Key must be withing the range [1 : 26]");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Key must be withing the range [1 : 26]");
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
         }
     }
 }

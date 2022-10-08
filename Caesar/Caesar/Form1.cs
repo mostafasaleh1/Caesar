@@ -97,7 +97,7 @@ namespace Caesar
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
+            int key = int.Parse(textBox1.Text);
         }
     }
 }

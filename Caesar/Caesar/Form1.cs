@@ -142,7 +142,34 @@ namespace Caesar
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            
+            int key = int.Parse(textBox1.Text);
+            if (key > 0 && key <= 26)
+            {
+                string EncryptedText = "";
+                for (int i = 0; i < textBox3.Text.Length; i++)
+                {
+                    if (char.IsLetter(textBox3.Text[i]))
+                    {
+                        if (char.IsLower(textBox3.Text[i]))
+                        {
+                            EncryptedText += (char)(((textBox3.Text[i] - (key + 26) - 97) % 26) + 97);
+                        }
+                        else
+                        {
+                            EncryptedText += (char)(((textBox3.Text[i] - (key + 26) - 65) % 26) + 65);
+                        }
+                    }
+                    else
+                    {
+                        EncryptedText += textBox3.Text[i];
+                    }
+                }
+                textBox2.Text = EncryptedText;
+            }
+            else
+            {
+                MessageBox.Show("Key must be withing the range [1 : 26]");
+            }
         }
     }
 }

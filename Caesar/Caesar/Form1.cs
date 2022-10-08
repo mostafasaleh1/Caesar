@@ -23,7 +23,7 @@ namespace Caesar
             label2.Visible = false;
             label3.Visible = false;
             button1.Visible = false;
-            
+            button2.Visible = false;
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace Caesar
 
         private void Label3_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Label4_Click(object sender, EventArgs e)
@@ -68,25 +68,31 @@ namespace Caesar
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.Text == "I want to Encrypt text with Caesar")
+            textBox1.Visible = true;
+            textBox2.Visible = true;
+            textBox3.Visible = true;
+            label4.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+            if (comboBox1.Text == "I want to Encrypt text with Caesar")
             {
-                textBox1.Visible = true;
-                textBox2.Visible = true;
-                textBox3.Visible = true;
-                label4.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
+
                 button1.Visible = true;
+                button2.Visible = false;
+                label3.Text = "Text to be Encrypted";
+                label4.Text = "Encrypted Text";
             }
             else if(comboBox1.Text == "I want to Decrypt text with Caesar")
             {
-                textBox1.Visible = true;
-                textBox2.Visible = false;
-                textBox3.Visible = false;
-                label4.Visible = false;
-                label2.Visible = true;
-                label3.Visible = false;
+
+                button2.Visible = true;
                 button1.Visible = false;
+                label3.Text = "Decrypted Text";
+                label4.Text = "Text to be Decrypted";
+            }
+            else
+            {
+                MessageBox.Show("Error: Please choose from the selected options");
             }
         }
 
@@ -132,6 +138,11 @@ namespace Caesar
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

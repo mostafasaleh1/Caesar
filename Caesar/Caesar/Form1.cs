@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Caesar
 {
@@ -22,6 +23,7 @@ namespace Caesar
             label2.Visible = false;
             label3.Visible = false;
             button1.Visible = false;
+            
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -34,9 +36,9 @@ namespace Caesar
 
         }
 
-        private void TextBox1_TextChanged(object sender, EventArgs e)
+        public void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            int Key = int.Parse(textBox1.Text);
+
         }
 
         private void Label3_Click(object sender, EventArgs e)
@@ -89,6 +91,11 @@ namespace Caesar
         }
 
         private void Label5_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
         {
 
         }

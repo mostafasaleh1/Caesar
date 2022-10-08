@@ -97,7 +97,22 @@ namespace Caesar
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            int key = int.Parse(textBox1.Text);
+            try
+            {
+                int key = int.Parse(textBox1.Text);
+                if (key > 0 && key <= 26)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Key must be withing the range [1 : 26]");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

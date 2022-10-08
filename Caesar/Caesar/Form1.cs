@@ -120,37 +120,41 @@ namespace Caesar
         {
             try
             {
-                int key = int.Parse(textBox1.Text);
-                if (key > 0 && key <= 26)
+                if(textBox1.Text != "" || textBox1.Text == null)
                 {
-                    string EncryptedText = "";
-                    for (int i = 0; i < textBox2.Text.Length; i++)
+                    int key = int.Parse(textBox1.Text);
+                    if (key > 0 && key < 26)
                     {
-                        if (char.IsLetter(textBox2.Text[i]))
+                        string EncryptedText = "";
+                        for (int i = 0; i < textBox2.Text.Length; i++)
                         {
-                            if (char.IsLower(textBox2.Text[i]))
+                            if (char.IsLetter(textBox2.Text[i]))
                             {
-                                EncryptedText += (char)(((textBox2.Text[i] + key - 97) % 26) + 97);
+                                if (char.IsLower(textBox2.Text[i]))
+                                {
+                                    EncryptedText += (char)(((textBox2.Text[i] + key - 97) % 26) + 97);
+                                }
+                                else
+                                {
+                                    EncryptedText += (char)(((textBox2.Text[i] + key - 65) % 26) + 65);
+                                }
                             }
                             else
                             {
-                                EncryptedText += (char)(((textBox2.Text[i] + key - 65) % 26) + 65);
+                                EncryptedText += textBox2.Text[i];
                             }
                         }
-                        else
-                        {
-                            EncryptedText += textBox2.Text[i];
-                        }
+                        textBox3.Text = EncryptedText;
                     }
-                    textBox3.Text = EncryptedText;
-                }
-                else if (textBox1.Text == null || textBox1.Text == "")
-                {
-                    MessageBox.Show("You mush enter a key");
+
+                    else
+                    {
+                        MessageBox.Show("Key must be withing the range [1 : 25]");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Key must be withing the range [1 : 26]");
+                    MessageBox.Show("You mush enter a key");
                 }
             }
             catch(Exception ex)
@@ -163,38 +167,43 @@ namespace Caesar
         {
             try
             {
-                int key = int.Parse(textBox1.Text);
-                if (key > 0 && key <= 26)
+                if (textBox1.Text != "" || textBox1.Text == null)
                 {
-                    string EncryptedText = "";
-                    for (int i = 0; i < textBox3.Text.Length; i++)
+                    int key = int.Parse(textBox1.Text);
+                    if (key > 0 && key < 26)
                     {
-                        if (char.IsLetter(textBox3.Text[i]))
+                        string EncryptedText = "";
+                        for (int i = 0; i < textBox3.Text.Length; i++)
                         {
-                            if (char.IsLower(textBox3.Text[i]))
+                            if (char.IsLetter(textBox3.Text[i]))
                             {
-                                EncryptedText += (char)(((textBox3.Text[i] - key + 26 - 97) % 26) + 97);
+                                if (char.IsLower(textBox3.Text[i]))
+                                {
+                                    EncryptedText += (char)(((textBox3.Text[i] - key + 26 - 97) % 26) + 97);
+                                }
+                                else
+                                {
+                                    EncryptedText += (char)(((textBox3.Text[i] - key + 26 - 65) % 26) + 65);
+                                }
                             }
                             else
                             {
-                                EncryptedText += (char)(((textBox3.Text[i] - key + 26 - 65) % 26) + 65);
+                                EncryptedText += textBox3.Text[i];
                             }
                         }
-                        else
-                        {
-                            EncryptedText += textBox3.Text[i];
-                        }
+                        textBox2.Text = EncryptedText;
                     }
-                    textBox2.Text = EncryptedText;
-                }
-                else if (textBox1.Text == null || textBox1.Text == "")
-                {
-                    MessageBox.Show("You mush enter a key");
+
+                    else
+                    {
+                        MessageBox.Show("Key must be withing the range [1 : 25]");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Key must be withing the range [1 : 26]");
+                    MessageBox.Show("You mush enter a key");
                 }
+
             }
             catch (Exception ex)
             {

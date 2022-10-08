@@ -81,11 +81,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cooper Black", 21.75F);
+            this.label3.Font = new System.Drawing.Font("Cooper Black", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(152, 156);
+            this.label3.Location = new System.Drawing.Point(106, 167);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(318, 34);
+            this.label3.Size = new System.Drawing.Size(390, 40);
             this.label3.TabIndex = 4;
             this.label3.Text = "Text to be Encrypted";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -106,11 +106,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Cooper Black", 21.75F);
+            this.label4.Font = new System.Drawing.Font("Cooper Black", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1041, 156);
+            this.label4.Location = new System.Drawing.Point(1014, 167);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(234, 34);
+            this.label4.Size = new System.Drawing.Size(285, 40);
             this.label4.TabIndex = 6;
             this.label4.Text = "Encrypted text";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
